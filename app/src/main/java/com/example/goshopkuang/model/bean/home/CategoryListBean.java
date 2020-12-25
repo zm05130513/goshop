@@ -1,4 +1,4 @@
-package com.example.goshopkuang.model.bean;
+package com.example.goshopkuang.model.bean.home;
 
 import android.os.Parcel;
 import android.os.Parcelable;

@@ -1,8 +1,8 @@
-package com.example.goshopkuang.model.bean;
+package com.example.goshopkuang.model.bean.home;
 
 
 
-import com.example.goshopkuang.model.bean.channel.ChannelBean;
+import com.example.goshopkuang.model.bean.home.channel.ChannelBean;
 
 import java.util.List;
 

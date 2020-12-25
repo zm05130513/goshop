@@ -1,6 +1,6 @@
-package com.example.goshopkuang.model.bean.channel;
+package com.example.goshopkuang.model.bean.home.channel;
 
-public class GoodsListBean {
+public class DataBean {
             /**
              * id : 1166008
              * name : Carat钻石 不粘厨具组合

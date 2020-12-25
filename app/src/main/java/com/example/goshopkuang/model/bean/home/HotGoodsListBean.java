@@ -1,4 +1,4 @@
-package com.example.goshopkuang.model.bean;
+package com.example.goshopkuang.model.bean.home;
 
 public class HotGoodsListBean {
             /**

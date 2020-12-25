@@ -1,4 +1,4 @@
-package com.example.goshopkuang.model.bean.channel;
+package com.example.goshopkuang.model.bean.home.channel;
 
 import java.util.List;
 

@@ -92,7 +92,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        navigation = findViewById(R.id.mobile_navigation);
+        navigation =(BottomNavigationView)findViewById(R.id.mobile_navigation);
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
