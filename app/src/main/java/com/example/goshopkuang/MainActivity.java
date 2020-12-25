@@ -1,30 +1,137 @@
 package com.example.goshopkuang;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
 
+import com.example.goshopkuang.base.BaseActivity;
+import com.example.goshopkuang.interfaces.IPresenter;
+import com.example.goshopkuang.view.category.CategoryFragment;
+import com.example.goshopkuang.view.home.HomeFragment;
+import com.example.goshopkuang.view.main.MineFragment;
+import com.example.goshopkuang.view.main.mine.MainFragment;
+import com.example.goshopkuang.view.shop.ShoppingFragment;
+import com.example.goshopkuang.view.topic.TopicFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-public class MainActivity extends AppCompatActivity {
+import butterknife.BindView;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController);
+public class MainActivity extends BaseActivity {
+
+    @BindView(R.id.fl_main)
+    FrameLayout flMain;
+
+
+    public BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            //切换页面，是另外一个事物，不能跟初始化共同使用一个事物
+            FragmentTransaction transaction = manager.beginTransaction();
+            switch (item.getItemId()){
+                case R.id.navigation_home:
+                    transaction.replace(R.id.fl_main,homeFragment).commit();
+
+                    return true;
+                case R.id.navigation_topic:
+                    transaction.replace(R.id.fl_main,topicFragment).commit();
+
+                    return true;
+                case R.id.navigation_category:
+                    transaction.replace(R.id.fl_main,categoryFragment).commitNow();
+
+                    return true;
+                case R.id.navigation_shopping:
+                    transaction.replace(R.id.fl_main,shoppingFragment).commit();
+
+                    return true;
+                case R.id.navigation_main:
+                    //  transaction.replace(R.id.fl_main,mineFragment).commit();
+                    transaction.replace(R.id.fl_main,mineFragment).commit();
+
+                    return true;
+                default:
+                    break;
+
+            }
+
+            return false;
+        }
+    };
+    private HomeFragment homeFragment;
+    private TopicFragment topicFragment;
+    private CategoryFragment categoryFragment;
+    private ShoppingFragment shoppingFragment;
+    private MainFragment mainFragment;
+    private BottomNavigationView navigation;
+    private MineFragment mineFragment;
+    private FragmentManager manager;
+
+    public BottomNavigationView getNavigation() {
+        return navigation;
     }
 
+    public TopicFragment getTopicFragment() {
+        return topicFragment;
+    }
+
+    public ShoppingFragment getShoppingFragment() {
+        return shoppingFragment;
+    }
+
+
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initView() {
+        navigation = findViewById(R.id.mobile_navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        homeFragment = new HomeFragment();
+        topicFragment = new TopicFragment();
+        categoryFragment = new CategoryFragment();
+        shoppingFragment = new ShoppingFragment();
+        mineFragment = new MineFragment();
+        mainFragment = new MainFragment();
+
+        manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.fl_main, homeFragment).commit();
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected IPresenter initPresenter() {
+        return null;
+    }
+
+
+    @Override
+    public void showErrMsg(String err) {
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("dou");
+        if (name != null) {
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.fl_main, shoppingFragment).commit();
+            getNavigation().setSelectedItemId(R.id.navigation_shopping);
+        }
+    }
 }

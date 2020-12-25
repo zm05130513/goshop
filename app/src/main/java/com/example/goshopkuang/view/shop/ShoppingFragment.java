@@ -1,4 +1,4 @@
-package com.example.goshopkuang.view.notifications;
+package com.example.goshopkuang.view.shop;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.goshopkuang.R;
 
-public class NotificationsFragment extends Fragment {
+public class ShoppingFragment extends Fragment {
 
     private NotificationsViewModel notificationsViewModel;
 

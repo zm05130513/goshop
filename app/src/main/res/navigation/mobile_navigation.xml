@@ -12,14 +12,26 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.goshopkuang.view.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:id="@+id/navigation_topic"
+        android:name="com.example.goshopkuang.view.topic.TopicFragment"
+        android:label="@string/title_topic"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.goshopkuang.view.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:id="@+id/navigation_category"
+        android:name="com.example.goshopkuang.view.category.CategoryFragment"
+        android:label="@string/title_category"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_shopping"
+        android:name="com.example.goshopkuang.view.shop.ShoppingFragment"
+        android:label="@string/title_shopping"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_main"
+        android:name="com.example.goshopkuang.view.main.mine.MainFragment"
+        android:label="@string/title_main"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
