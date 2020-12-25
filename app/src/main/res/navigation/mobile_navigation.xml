@@ -15,23 +15,23 @@
         android:id="@+id/navigation_topic"
         android:name="com.example.goshopkuang.view.topic.TopicFragment"
         android:label="@string/title_topic"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_topic" />
 
     <fragment
         android:id="@+id/navigation_category"
         android:name="com.example.goshopkuang.view.category.CategoryFragment"
         android:label="@string/title_category"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_category" />
 
     <fragment
         android:id="@+id/navigation_shopping"
         android:name="com.example.goshopkuang.view.shop.ShoppingFragment"
         android:label="@string/title_shopping"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_shop" />
 
     <fragment
         android:id="@+id/navigation_main"
         android:name="com.example.goshopkuang.view.main.mine.MainFragment"
         android:label="@string/title_main"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_main" />
 </navigation>
