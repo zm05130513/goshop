@@ -2,6 +2,7 @@ package com.example.goshopkuang.interfaces.home;
 
 import com.example.goshopkuang.interfaces.IBaseView;
 import com.example.goshopkuang.interfaces.IPresenter;
+import com.example.goshopkuang.model.bean.home.BrandList;
 import com.example.goshopkuang.model.bean.home.HomeBean;
 
 public interface HomeContract {
@@ -13,4 +14,13 @@ public interface HomeContract {
     interface Presenter extends IPresenter<View>{
         void home();
     }
+
+    interface BrandView extends IBaseView{
+        void getBrandListReturn(BrandList data);
+    }
+    interface BPresenter extends IPresenter<BrandView> {
+        void brandList();
+        void brandList(int page);
+    }
+
 }

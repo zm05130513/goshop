@@ -9,12 +9,13 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 public class BasePresenter<V extends IBaseView> implements IPresenter<V> {
+
     //对view层进行弱引用化处理
     private WeakReference<V> weakReference;
     /**
      * 当前请求数据的view
      */
-    private V mView;
+    protected V mView;
     //RxJava2 数据加载的时候，界面回收一起的数据内存泄漏
     protected CompositeDisposable compositeDisposable;
 
