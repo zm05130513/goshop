@@ -1,9 +1,12 @@
 package com.example.goshopkuang;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.goshopkuang.base.BaseActivity;
 import com.example.goshopkuang.interfaces.IPresenter;
@@ -14,10 +17,6 @@ import com.example.goshopkuang.view.main.mine.MainFragment;
 import com.example.goshopkuang.view.shop.ShoppingFragment;
 import com.example.goshopkuang.view.topic.TopicFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import butterknife.BindView;
 
@@ -63,7 +62,7 @@ public class MainActivity extends BaseActivity {
             return false;
         }
     };
-    private HomeFragment homeFragment;
+   // private HomeFragment homeFragment;
     private TopicFragment topicFragment;
     private CategoryFragment categoryFragment;
     private ShoppingFragment shoppingFragment;
@@ -71,6 +70,7 @@ public class MainActivity extends BaseActivity {
     private BottomNavigationView navigation;
     private MineFragment mineFragment;
     private FragmentManager manager;
+    private HomeFragment homeFragment;
 
     public BottomNavigationView getNavigation() {
         return navigation;
@@ -96,6 +96,7 @@ public class MainActivity extends BaseActivity {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        //homeFragment = new HomeFragment();
         homeFragment = new HomeFragment();
         topicFragment = new TopicFragment();
         categoryFragment = new CategoryFragment();

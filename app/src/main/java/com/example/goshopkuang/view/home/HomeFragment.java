@@ -2,7 +2,6 @@ package com.example.goshopkuang.view.home;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,9 +14,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.goshopkuang.ItemSpace;
 import com.example.goshopkuang.MainActivity;
 import com.example.goshopkuang.R;
 
+import com.example.goshopkuang.adapter.CategoryAdapter;
+import com.example.goshopkuang.adapter.HomeBrandAdapter;
 import com.example.goshopkuang.adapter.HomeHotAdapter;
 import com.example.goshopkuang.adapter.HomeNewAdapter;
 import com.example.goshopkuang.adapter.HomeTopicAdapter;
@@ -33,7 +35,6 @@ import com.example.goshopkuang.model.bean.home.NewGoodsListBean;
 import com.example.goshopkuang.model.bean.home.TopicListBean;
 import com.example.goshopkuang.model.bean.home.channel.ChannelBean;
 import com.example.goshopkuang.presenter.home.HomePresenter;
-import com.example.goshopkuang.view.topic.TopicInfoActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
 
@@ -42,8 +43,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.Unbinder;
+import androidx.fragment.app.Fragment;
 
-public class HomeFragment extends BaseFragment implements HomeContract.View{
+public class HomeFragment extends BaseFragment implements HomeContract.View, View.OnClickListener {
     @BindView(R.id.searchView)
     SearchView searchView;
     @BindView(R.id.banner_main)
@@ -78,9 +80,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
     Unbinder unbinder;
     private List<BrandListBean> brand;
     private ArrayList<CategoryListBean> category;
-    private List<HotGoodsListBean> hotGoodsListBeans;
     private List<NewGoodsListBean> newGoodsListBeans;
     private List<TopicListBean> topicListBeans;
+    private List<HotGoodsListBean> hotGoodsListBeans;
     private HomeBrandAdapter homeBrandAdapter;
     private HomeNewAdapter homeNewAdapter;
     private HomeHotAdapter homeHotAdapter;
@@ -88,6 +90,8 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
     private CategoryAdapter categoryAdapter;
     private List<ChannelBean> channel;
     private MainActivity activity;
+    private HotGoodsListBean hotGoodsListBean;
+
     @Override
     protected int getLayout() {
         return R.layout.fragment_home2;
@@ -95,9 +99,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
 
     @Override
     protected void initView(View view) {
-        brand=new ArrayList<>();
-        category=new ArrayList<>();
-        hotGoodsListBeans= (List<HotGoodsListBean>) new HotGoodsListBean();
+        brand = new ArrayList<>();
+        category = new ArrayList<>();
+        hotGoodsListBeans = new ArrayList<>();
         newGoodsListBeans = new ArrayList<>();
         topicListBeans = new ArrayList<>();
 
@@ -106,12 +110,12 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
 
     @Override
     protected void initData() {
-        ((HomePresenter)presenter).home();
+        ((HomePresenter) presenter).home();
     }
 
     @Override
     protected IPresenter createPresenter() {
-        return HomePresenter();
+        return new HomePresenter();
     }
 
     @Override
@@ -176,9 +180,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
         homeBrandAdapter.setClickListener(new HomeBrandAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, BrandListBean bean) {
-                Intent intent = new Intent(getActivity(), BrandDetailActivity.class);
-                intent.putExtra("id",bean.getId()+"");
-                startActivity(intent);
+              //  Intent intent = new Intent(getActivity(), BrandDetailActivity.class);
+               // intent.putExtra("id", bean.getId() + "");
+              //  startActivity(intent);
             }
         });
     }
@@ -192,9 +196,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
         homeNewAdapter.setClickListener(new HomeNewAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, NewGoodsListBean data) {
-                Intent intent = new Intent(getActivity(), ShoppingActivity.class);
-                intent.putExtra("goodId",data.getId()+"");
-                getActivity().startActivity(intent);
+              //  Intent intent = new Intent(getActivity(), ShoppingActivity.class);
+              //  intent.putExtra("goodId", data.getId() + "");
+             //   getActivity().startActivity(intent);
             }
         });
     }
@@ -207,9 +211,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
         homeHotAdapter.setClickListener(new HomeHotAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, HotGoodsListBean data) {
-                Intent intent = new Intent(getActivity(), ShoppingActivity.class);
-                intent.putExtra("goodId",data.getId()+"");
-                getActivity().startActivity(intent);
+               // Intent intent = new Intent(getActivity(), ShoppingActivity.class);
+               // intent.putExtra("goodId", data.getId() + "");
+              //  getActivity().startActivity(intent);
             }
         });
     }
@@ -226,9 +230,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
         homeTopicAdapter.setClickListener(new HomeTopicAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, TopicListBean data) {
-                Intent intent = new Intent(getActivity(), TopicInfoActivity.class);
-                intent.putExtra("id",data.getId()+"");
-                startActivity(intent);
+             //   Intent intent = new Intent(getActivity(), TopicInfoActivity.class);
+             //   intent.putExtra("id", data.getId() + "");
+             //   startActivity(intent);
             }
         });
     }
@@ -246,4 +250,8 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
     }
 
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }
