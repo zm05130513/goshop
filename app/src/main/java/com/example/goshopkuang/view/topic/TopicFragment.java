@@ -2,7 +2,9 @@ package com.example.goshopkuang.view.topic;
 
 import androidx.fragment.app.Fragment;
 
-public class TopicFragment extends Fragment {
+import com.example.goshopkuang.base.BaseFragment;
+
+public class TopicFragment extends BaseFragment{
 
 
 }
