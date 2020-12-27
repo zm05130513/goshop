@@ -19,11 +19,11 @@ import com.example.goshopkuang.ItemSpace;
 import com.example.goshopkuang.MainActivity;
 import com.example.goshopkuang.R;
 
-import com.example.goshopkuang.adapter.CategoryAdapter;
-import com.example.goshopkuang.adapter.HomeBrandAdapter;
-import com.example.goshopkuang.adapter.HomeHotAdapter;
-import com.example.goshopkuang.adapter.HomeNewAdapter;
-import com.example.goshopkuang.adapter.HomeTopicAdapter;
+import com.example.goshopkuang.adapter.home.CategoryAdapter;
+import com.example.goshopkuang.adapter.home.HomeBrandAdapter;
+import com.example.goshopkuang.adapter.home.HomeHotAdapter;
+import com.example.goshopkuang.adapter.home.HomeNewAdapter;
+import com.example.goshopkuang.adapter.home.HomeTopicAdapter;
 import com.example.goshopkuang.base.BaseFragment;
 import com.example.goshopkuang.interfaces.IPresenter;
 import com.example.goshopkuang.interfaces.home.HomeContract;
@@ -44,7 +44,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.Unbinder;
-import androidx.fragment.app.Fragment;
 
 public class HomeFragment extends BaseFragment implements HomeContract.View, View.OnClickListener {
     @BindView(R.id.searchView)

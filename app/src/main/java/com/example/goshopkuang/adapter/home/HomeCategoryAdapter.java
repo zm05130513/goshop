@@ -1,5 +1,4 @@
-package com.example.goshopkuang.adapter;
-
+package com.example.goshopkuang.adapter.home;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,31 +11,43 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.goshopkuang.R;
-import com.example.goshopkuang.model.bean.home.NewGoodsListBean;
+import com.example.goshopkuang.model.bean.home.CategoryListBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeNewAdapter extends RecyclerView.Adapter<HomeNewAdapter.ItemHolder> {
-    private List<NewGoodsListBean> list=new ArrayList<>();
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-    public HomeNewAdapter(List<NewGoodsListBean> list) {
+public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapter.ItemHolder> {
+
+    private List<CategoryListBean.GoodsListBean> list = new ArrayList<>();
+
+    public HomeCategoryAdapter(List<CategoryListBean.GoodsListBean> list) {
         this.list = list;
     }
 
     @NonNull
     @Override
     public ItemHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_new_item, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout
+                        .layout_category_item, viewGroup, false);
 
         return new ItemHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ItemHolder holder, final int i) {
-        Glide.with(holder.itemView.getContext()).load(list.get(i).getList_pic_url()).into(holder.iv);
-        holder.name.setText(list.get(i).getName());
-        holder.price.setText("￥"+list.get(i).getRetail_price());
+        Glide.with(holder.itemView.getContext()).load(list.get(i).getList_pic_url()).into(holder
+                .iv);
+        int length = list.get(i).getName().length();
+        if (length < 13) {
+            holder.name.setText(list.get(i).getName());
+        } else {
+            holder.name.setText(list.get(i).getName().substring(0, 13));
+        }
+        holder.price.setText("￥" + list.get(i).getRetail_price());
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,21 +63,20 @@ public class HomeNewAdapter extends RecyclerView.Adapter<HomeNewAdapter.ItemHold
         return list.size();
     }
 
-    class ItemHolder extends RecyclerView.ViewHolder{
 
+    class ItemHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.iv_new_pic)
         ImageView iv;
+        @BindView(R.id.tv_name)
         TextView name;
+        @BindView(R.id.tv_price)
         TextView price;
+
         public ItemHolder(@NonNull View itemView) {
             super(itemView);
-
-                iv = itemView.findViewById(R.id.iv_new_pic);
-                name = itemView.findViewById(R.id.tv_name);
-                price = itemView.findViewById(R.id.tv_price);
-
+            ButterKnife.bind(this,itemView);
         }
     }
-
     private ItemClickListener clickListener;
 
     public void setClickListener(ItemClickListener clickListener) {
@@ -74,6 +84,6 @@ public class HomeNewAdapter extends RecyclerView.Adapter<HomeNewAdapter.ItemHold
     }
 
     public interface ItemClickListener{
-        void onClick(int position,NewGoodsListBean data);
+        void onClick(int position,CategoryListBean.GoodsListBean data);
     }
 }

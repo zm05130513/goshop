@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.goshopkuang.R;
-import com.example.goshopkuang.adapter.HomeHotAdapter;
 import com.example.goshopkuang.model.bean.topic.TopicBean;
 
 import java.util.ArrayList;

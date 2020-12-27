@@ -2,7 +2,6 @@ package com.example.goshopkuang;
 
 import android.content.Intent;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
@@ -14,16 +13,14 @@ import com.example.goshopkuang.interfaces.IPresenter;
 import com.example.goshopkuang.view.category.CategoryFragment;
 //import com.example.goshopkuang.view.home.HomeFragment;
 import com.example.goshopkuang.view.home.HomeFragment;
-import com.example.goshopkuang.view.main.MineFragment;
-import com.example.goshopkuang.view.main.mine.MainFragment;
+import com.example.goshopkuang.view.main.mine.MineFragment;
+import com.example.goshopkuang.view.main.MainFragment;
 import com.example.goshopkuang.view.shop.ShoppingFragment;
 import com.example.goshopkuang.view.topic.TopicFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import butterknife.BindView;
 
 public class MainActivity extends BaseActivity {
-
 
     public FrameLayout flMain;
 
@@ -40,7 +37,7 @@ public class MainActivity extends BaseActivity {
 
                     return true;
                 case R.id.navigation_topic:
-                    transaction.replace(R.id.fl_main,topicFragment).commit();
+                    transaction.replace(R.id.fl_main,topicFragment).addToBackStack(null).commit();
 
                     return true;
                 case R.id.navigation_category:
@@ -53,7 +50,7 @@ public class MainActivity extends BaseActivity {
                     return true;
                 case R.id.navigation_main:
                     //  transaction.replace(R.id.fl_main,mineFragment).commit();
-                    transaction.replace(R.id.fl_main,mineFragment).commit();
+                    transaction.replace(R.id.fl_main,mineFragment).addToBackStack(null).commit();
 
                     return true;
                 default:
@@ -109,7 +106,8 @@ public class MainActivity extends BaseActivity {
         mainFragment = new MainFragment();
 
         manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
+        //初始化显示主页，是一个事物
+       FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.fl_main, homeFragment).commit();
     }
 

@@ -1,6 +1,5 @@
-package com.example.goshopkuang.adapter;
+package com.example.goshopkuang.adapter.home;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

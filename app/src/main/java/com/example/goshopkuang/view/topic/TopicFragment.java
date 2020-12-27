@@ -50,8 +50,6 @@ public class TopicFragment extends BaseFragment implements TopicContract.View {
         rvTopicTopic.addItemDecoration(new ItemSpace(20));
         topicAdapter = new TopicAdapter(getActivity(), list);
         rvTopicTopic.setAdapter(topicAdapter);
-
-
     }
 
 

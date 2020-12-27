@@ -55,7 +55,6 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:text="下一页"
-
                     android:textColor="@drawable/selector_previous_topic" />
             </LinearLayout>
         </LinearLayout>
