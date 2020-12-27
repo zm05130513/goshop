@@ -2,6 +2,7 @@ package com.example.goshopkuang;
 
 import android.content.Intent;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
@@ -23,8 +24,8 @@ import butterknife.BindView;
 
 public class MainActivity extends BaseActivity {
 
-    @BindView(R.id.fl_main)
-    FrameLayout flMain;
+
+    public FrameLayout flMain;
 
 
     public BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -94,6 +95,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        flMain = findViewById(R.id.fl_main);
         navigation =(BottomNavigationView)findViewById(R.id.navigation);
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

@@ -18,7 +18,7 @@ public interface TopicContract {
     }
 
     interface InfoView extends IBaseView {
-        void topicDetailReturn(DelailBean bean);
+        void topicDetailReturn(DetailBean bean);
         void topicRelatedReturn(RelatedBean bean);
 
     }
