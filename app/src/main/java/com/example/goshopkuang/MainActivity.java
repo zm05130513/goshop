@@ -110,7 +110,7 @@ public class MainActivity extends BaseActivity {
 
         manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-       // transaction.replace(R.id.fl_main, homeFragment).commit();
+        transaction.replace(R.id.fl_main, homeFragment).commit();
     }
 
     @Override

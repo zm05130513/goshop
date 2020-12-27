@@ -38,9 +38,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ItemHo
         holder.title.setText(list.get(i).getName());
         holder.rv.setLayoutManager(new GridLayoutManager(holder.itemView.getContext(), 2));
         holder.rv.addItemDecoration(new ItemSpace(16));
-        //HomeCategoryAdapter homeCategoryAdapter = new HomeCategoryAdapter(list.get(i).getGoodsList());
-       // holder.rv.setAdapter(homeCategoryAdapter);
-      /*  homeCategoryAdapter.setClickListener(new com.example.zm_kuang.adapter.HomeCategoryAdapter.ItemClickListener() {
+        HomeCategoryAdapter homeCategoryAdapter = new HomeCategoryAdapter(list.get(i).getGoodsList());
+        holder.rv.setAdapter(homeCategoryAdapter);
+       /* homeCategoryAdapter.setClickListener(HomeCategoryAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, CategoryListBean.GoodsListBean data) {
                 Intent intent = new Intent(holder.itemView.getContext(), ShoppingActivity.class);
