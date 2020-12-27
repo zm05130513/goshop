@@ -4,6 +4,7 @@ package com.example.goshopkuang.view.home;
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,15 +52,15 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
     @BindView(R.id.banner_main)
     Banner bannerMain;
     @BindView(R.id.tv_juJia)
-    TextView tvJuJia;
+    RadioButton tvJuJia;
     @BindView(R.id.tv_canChu)
-    TextView tvCanChu;
+    RadioButton tvCanChu;
     @BindView(R.id.tv_peiJian)
-    TextView tvPeiJian;
+    RadioButton tvPeiJian;
     @BindView(R.id.tv_fuZhuang)
-    TextView tvFuZhuang;
+    RadioButton tvFuZhuang;
     @BindView(R.id.tv_zhiQu)
-    TextView tvZhiQu;
+    RadioButton tvZhiQu;
 
     @BindView(R.id.rv_brand)
     RecyclerView rvBrand;
@@ -167,6 +168,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
                 .start();
 
         tvJuJia.setText(channel.get(0).getName());
+        //tvJuJia.setb(channel.get(0).getIcon_url());
         tvCanChu.setText(channel.get(1).getName());
         tvPeiJian.setText(channel.get(2).getName());
         tvFuZhuang.setText(channel.get(3).getName());
