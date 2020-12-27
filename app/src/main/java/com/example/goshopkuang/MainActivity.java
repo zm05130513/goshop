@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.goshopkuang.base.BaseActivity;
 import com.example.goshopkuang.interfaces.IPresenter;
 import com.example.goshopkuang.view.category.CategoryFragment;
+//import com.example.goshopkuang.view.home.HomeFragment;
 import com.example.goshopkuang.view.home.HomeFragment;
 import com.example.goshopkuang.view.main.MineFragment;
 import com.example.goshopkuang.view.main.mine.MainFragment;
@@ -71,6 +72,7 @@ public class MainActivity extends BaseActivity {
     private MineFragment mineFragment;
     private FragmentManager manager;
     private HomeFragment homeFragment;
+    //private HomeFragment homeFragment;
 
     public BottomNavigationView getNavigation() {
         return navigation;
@@ -92,12 +94,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        navigation =(BottomNavigationView)findViewById(R.id.mobile_navigation);
+        navigation =(BottomNavigationView)findViewById(R.id.navigation);
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         //homeFragment = new HomeFragment();
-        homeFragment = new HomeFragment();
+        homeFragment = new com.example.goshopkuang.view.home.HomeFragment();
         topicFragment = new TopicFragment();
         categoryFragment = new CategoryFragment();
         shoppingFragment = new ShoppingFragment();
@@ -106,7 +108,7 @@ public class MainActivity extends BaseActivity {
 
         manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.fl_main, homeFragment).commit();
+       // transaction.replace(R.id.fl_main, homeFragment).commit();
     }
 
     @Override

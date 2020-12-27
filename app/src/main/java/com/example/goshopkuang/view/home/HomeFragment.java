@@ -105,7 +105,15 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
         newGoodsListBeans = new ArrayList<>();
         topicListBeans = new ArrayList<>();
 
+        brandListData(brand);
 
+        newListView(newGoodsListBeans);
+
+        hotListData(hotGoodsListBeans);
+
+        topicListData(topicListBeans);
+
+        categoryListData(category);
     }
 
     @Override
