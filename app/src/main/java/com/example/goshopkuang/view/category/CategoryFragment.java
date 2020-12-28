@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.goshopkuang.R;
+import com.example.goshopkuang.adapter.category.FragTabAdapter;
 import com.example.goshopkuang.base.BaseFragment;
 import com.example.goshopkuang.interfaces.IPresenter;
 import com.example.goshopkuang.interfaces.category.CategoryContract;
@@ -52,12 +53,15 @@ public class CategoryFragment extends BaseFragment implements CategoryContract.V
 
     @Override
     public void categoryDataReturn(List<CategoryListBean> categoryList) {
-        final ArrayList<String> tabName=new ArrayList<>();
-        final ArrayList<Fragment> fragments=new ArrayList<>();
+        final ArrayList<String> tabName = new ArrayList<>();
+        final ArrayList<Fragment> fragments = new ArrayList<>();
         for (int i = 0; i < categoryList.size(); i++) {
             fragments.add(new CategoryTabFragment(categoryList.get(i).getName(), categoryList.get(i).getId() + ""));
-
+            tabName.add(categoryList.get(i).getName());
         }
+        FragTabAdapter fragTabAdapter = new FragTabAdapter(getChildFragmentManager(), fragments, tabName);
+        vpSort.setAdapter(fragTabAdapter);
+        vTab.setupWithViewPager(vpSort);
     }
 
     @Override
