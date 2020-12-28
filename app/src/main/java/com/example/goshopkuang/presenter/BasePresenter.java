@@ -8,7 +8,7 @@ import java.lang.ref.WeakReference;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
-public class BasePresenter<V extends IBaseView> implements IPresenter<V> {
+public class  BasePresenter<V extends IBaseView> implements IPresenter<V> {
 
     //对view层进行弱引用化处理
     private WeakReference<V> weakReference;
