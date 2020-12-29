@@ -206,9 +206,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
         homeNewAdapter.setClickListener(new HomeNewAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, NewGoodsListBean data) {
-              //  Intent intent = new Intent(getActivity(), ShoppingActivity.class);
-              //  intent.putExtra("goodId", data.getId() + "");
-             //   getActivity().startActivity(intent);
+                //  Intent intent = new Intent(getActivity(), ShoppingActivity.class);
+                //  intent.putExtra("goodId", data.getId() + "");
+                //   getActivity().startActivity(intent);
             }
         });
     }
@@ -221,9 +221,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
         homeHotAdapter.setClickListener(new HomeHotAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, HotGoodsListBean data) {
-               // Intent intent = new Intent(getActivity(), ShoppingActivity.class);
-               // intent.putExtra("goodId", data.getId() + "");
-              //  getActivity().startActivity(intent);
+                // Intent intent = new Intent(getActivity(), ShoppingActivity.class);
+                // intent.putExtra("goodId", data.getId() + "");
+                //  getActivity().startActivity(intent);
             }
         });
     }
@@ -240,9 +240,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
         homeTopicAdapter.setClickListener(new HomeTopicAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, TopicListBean data) {
-             //   Intent intent = new Intent(getActivity(), TopicInfoActivity.class);
-             //   intent.putExtra("id", data.getId() + "");
-             //   startActivity(intent);
+                //   Intent intent = new Intent(getActivity(), TopicInfoActivity.class);
+                //   intent.putExtra("id", data.getId() + "");
+                //   startActivity(intent);
             }
         });
     }
@@ -262,6 +262,34 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_juJia:
+                showList(tvJuJia);
+                break;
+            case R.id.tv_canChu:
+                showList(tvCanChu);
+                break;
+            case R.id.tv_peiJian:
+                showList(tvPeiJian);
+                break;
+            case R.id.tv_fuZhuang:
+                showList(tvFuZhuang);
+                break;
+            case R.id.tv_zhiQu:
+                showList(tvZhiQu);
+                break;
 
+        }
+    }
+
+    private void showList(TextView view) {
+        String name = view.getText().toString().trim();
+        for (int i = 0; i < channel.size(); i++) {
+            if (name.equals(channel.get(i).getName())){
+                Intent intent = new Intent(getActivity(), ChannelDataActivity.class);
+                intent.putExtra("id",channel.get(i).getCategoryid());
+                startActivity(intent);
+            }
+        }
     }
 }
