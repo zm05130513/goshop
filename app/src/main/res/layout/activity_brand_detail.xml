@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.home.BrandDetailActivity"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+        <ImageView
+            android:id="@+id/iv_brand_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"/>
+        <TextView
+            android:id="@+id/tv_brand_name"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="制造商"
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_desc_brand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:gravity="center_horizontal"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_brand_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

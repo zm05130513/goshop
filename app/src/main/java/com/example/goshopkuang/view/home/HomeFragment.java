@@ -2,6 +2,7 @@ package com.example.goshopkuang.view.home;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -189,9 +190,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
         homeBrandAdapter.setClickListener(new HomeBrandAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, BrandListBean bean) {
-              //  Intent intent = new Intent(getActivity(), BrandDetailActivity.class);
-               // intent.putExtra("id", bean.getId() + "");
-              //  startActivity(intent);
+                Intent intent = new Intent(getActivity(), BrandDetailActivity.class);
+                intent.putExtra("id", bean.getId() + "");
+                startActivity(intent);
             }
         });
     }
