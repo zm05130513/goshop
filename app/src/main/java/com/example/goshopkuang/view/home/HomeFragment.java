@@ -206,9 +206,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
         homeNewAdapter.setClickListener(new HomeNewAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, NewGoodsListBean data) {
-                //  Intent intent = new Intent(getActivity(), ShoppingActivity.class);
-                //  intent.putExtra("goodId", data.getId() + "");
-                //   getActivity().startActivity(intent);
+                 // Intent intent = new Intent(getActivity(), ShoppingActivity.class);
+                  //intent.putExtra("goodId", data.getId() + "");
+                  // getActivity().startActivity(intent);
             }
         });
     }
@@ -240,9 +240,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
         homeTopicAdapter.setClickListener(new HomeTopicAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, TopicListBean data) {
-                //   Intent intent = new Intent(getActivity(), TopicInfoActivity.class);
-                //   intent.putExtra("id", data.getId() + "");
-                //   startActivity(intent);
+                  // Intent intent = new Intent(getActivity(), TopicInfoActivity.class);
+                  // intent.putExtra("id", data.getId() + "");
+                  // startActivity(intent);
             }
         });
     }

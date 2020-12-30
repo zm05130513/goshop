@@ -40,14 +40,14 @@ public class ChannelDataActivity extends BaseActivity implements CategoryContrac
     @Override
     protected void initView() {
         Intent intent = getIntent();
-        id=intent.getIntExtra("id",0);
-        fragments=new ArrayList<>();
-        tabName=new ArrayList<>();
+        id = intent.getIntExtra("id", 0);
+        fragments = new ArrayList<>();
+        tabName = new ArrayList<>();
     }
 
     @Override
     protected void initData() {
-        ((CategoryPresenter)presenter).category();
+        ((CategoryPresenter) presenter).category();
     }
 
     @Override
@@ -57,17 +57,17 @@ public class ChannelDataActivity extends BaseActivity implements CategoryContrac
 
     @Override
     public void categoryDataReturn(List<CategoryListBean> data) {
-tabChannelDataShow.setupWithViewPager(vpChannel);
+        tabChannelDataShow.setupWithViewPager(vpChannel);
         for (int i = 0; i < data.size(); i++) {
             CategoryListBean bean = data.get(i);
-            fragments.add(ChannelListFragment.newInstance(bean.getId()+"",bean.getName(),bean.getFront_desc()));
+            fragments.add(ChannelListFragment.newInstance(bean.getId() + "", bean.getName(), bean.getFront_desc()));
             tabName.add(bean.getName());
         }
-        FragTabAdapter fragTabAdapter = new FragTabAdapter(getSupportFragmentManager(),fragments,tabName);
+        FragTabAdapter fragTabAdapter = new FragTabAdapter(getSupportFragmentManager(), fragments, tabName);
         vpChannel.setAdapter(fragTabAdapter);
         for (int i = 0; i < data.size(); i++) {
             CategoryListBean bean = data.get(i);
-            if (id==bean.getId()){
+            if (id == bean.getId()) {
                 //tab设置默认选中某个键
                 tabChannelDataShow.getTabAt(i).select();
             }
