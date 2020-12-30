@@ -1,5 +1,6 @@
 package com.example.goshopkuang.view.topic;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,6 +51,16 @@ public class TopicFragment extends BaseFragment implements TopicContract.View {
         rvTopicTopic.addItemDecoration(new ItemSpace(20));
         topicAdapter = new TopicAdapter(getActivity(), list);
         rvTopicTopic.setAdapter(topicAdapter);
+
+        //点击跳转
+        topicAdapter.setClickListener(new TopicAdapter.ItemClickListener() {
+            @Override
+            public void onClick(int position, TopicBean.DataBeanX.DataBean data) {
+                Intent intent = new Intent(getActivity(), TopicInfoActivity.class);
+                intent.putExtra("id",data.getId() + "");
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -81,11 +92,9 @@ public class TopicFragment extends BaseFragment implements TopicContract.View {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_previous:
-
                 ((TopicPresenter) presenter).topic();
                 btnPrevious.setSelected(true);
                 btnNext.setSelected(false);
-
                 break;
             case R.id.btn_next:
 
