@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.goshopkuang.R;
+import com.example.goshopkuang.adapter.topic.TopicDetailAdapter;
+import com.example.goshopkuang.adapter.topic.TopicRelatedAdapter;
 import com.example.goshopkuang.base.BaseActivity;
 import com.example.goshopkuang.interfaces.IPresenter;
 import com.example.goshopkuang.interfaces.topic.TopicContract;
@@ -87,7 +89,7 @@ public class TopicInfoActivity extends BaseActivity implements TopicContract.Inf
     @Override
     public void topicRelatedReturn(RelatedBean bean) {
         data.addAll(bean.getData());
-        
+
     }
 
     @Override
