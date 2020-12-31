@@ -54,14 +54,23 @@ public class TopicInfoActivity extends BaseActivity implements TopicContract.Inf
     private void getTopicDetail() {
         list = new ArrayList<>();
         rvTopicInfo.setLayoutManager(new LinearLayoutManager(this));
-
+        topicDetailAdapter = new TopicDetailAdapter(list);
+        rvTopicInfo.setAdapter(topicDetailAdapter);
     }
 
     private void getTopicRelated() {
         data = new ArrayList<>();
         rvTopicRelate.setLayoutManager(new LinearLayoutManager(this));
-
-
+        topicRelatedAdapter = new TopicRelatedAdapter(data);
+        rvTopicRelate.setAdapter(topicRelatedAdapter);
+        topicRelatedAdapter.setClickListener(new TopicRelatedAdapter.ItemClickListener() {
+            @Override
+            public void onClick(int position, RelatedBean.DataBean data) {
+                Intent intent = new Intent(TopicInfoActivity.this, TopicInfoActivity.class);
+                intent.putExtra("id", data.getId() + "");
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -83,13 +92,13 @@ public class TopicInfoActivity extends BaseActivity implements TopicContract.Inf
             String substring = split[i].substring(split[i].length() - 60, split[i].length());
             list.add(substring);
         }
-
+        topicDetailAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void topicRelatedReturn(RelatedBean bean) {
         data.addAll(bean.getData());
-
+        topicRelatedAdapter.notifyDataSetChanged();
     }
 
     @Override
