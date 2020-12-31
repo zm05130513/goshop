@@ -37,6 +37,7 @@ import com.example.goshopkuang.model.bean.home.NewGoodsListBean;
 import com.example.goshopkuang.model.bean.home.TopicListBean;
 import com.example.goshopkuang.model.bean.home.channel.ChannelBean;
 import com.example.goshopkuang.presenter.home.HomePresenter;
+import com.example.goshopkuang.view.topic.TopicInfoActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
 
@@ -206,9 +207,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
         homeNewAdapter.setClickListener(new HomeNewAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, NewGoodsListBean data) {
-                 // Intent intent = new Intent(getActivity(), ShoppingActivity.class);
-                  //intent.putExtra("goodId", data.getId() + "");
-                  // getActivity().startActivity(intent);
+                // Intent intent = new Intent(getActivity(), ShoppingActivity.class);
+                //intent.putExtra("goodId", data.getId() + "");
+                // getActivity().startActivity(intent);
             }
         });
     }
@@ -240,9 +241,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
         homeTopicAdapter.setClickListener(new HomeTopicAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, TopicListBean data) {
-                  // Intent intent = new Intent(getActivity(), TopicInfoActivity.class);
-                  // intent.putExtra("id", data.getId() + "");
-                  // startActivity(intent);
+                Intent intent = new Intent(getActivity(), TopicInfoActivity.class);
+                intent.putExtra("id", data.getId() + "");
+                startActivity(intent);
             }
         });
     }
@@ -278,16 +279,21 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
             case R.id.tv_zhiQu:
                 showList(tvZhiQu);
                 break;
-
+            case R.id.tv_brand_title:
+                Intent brand = new Intent(getActivity(), BrandListActivity.class);
+                getActivity().startActivity(brand);
+                break;
+            default:
+                break;
         }
     }
 
     private void showList(TextView view) {
         String name = view.getText().toString().trim();
         for (int i = 0; i < channel.size(); i++) {
-            if (name.equals(channel.get(i).getName())){
+            if (name.equals(channel.get(i).getName())) {
                 Intent intent = new Intent(getActivity(), ChannelDataActivity.class);
-                intent.putExtra("id",channel.get(i).getCategoryid());
+                intent.putExtra("id", channel.get(i).getCategoryid());
                 startActivity(intent);
             }
         }
