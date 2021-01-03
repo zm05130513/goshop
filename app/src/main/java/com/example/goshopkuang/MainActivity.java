@@ -38,7 +38,6 @@ public class MainActivity extends BaseActivity {
                     return true;
                 case R.id.navigation_topic:
                     transaction.replace(R.id.fl_main,topicFragment).addToBackStack(null).commit();
-
                     return true;
                 case R.id.navigation_category:
                     transaction.replace(R.id.fl_main,categoryFragment).commitNow();

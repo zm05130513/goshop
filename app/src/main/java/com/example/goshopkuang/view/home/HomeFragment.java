@@ -283,6 +283,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
                 Intent brand = new Intent(getActivity(), BrandListActivity.class);
                 getActivity().startActivity(brand);
                 break;
+
             default:
                 break;
         }
