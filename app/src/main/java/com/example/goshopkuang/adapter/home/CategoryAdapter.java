@@ -1,5 +1,6 @@
 package com.example.goshopkuang.adapter.home;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.goshopkuang.ItemSpace;
 import com.example.goshopkuang.R;
 import com.example.goshopkuang.model.bean.home.CategoryListBean;
+import com.example.goshopkuang.view.home.ShoppingActivity;
 
 import java.util.ArrayList;
 
@@ -39,14 +41,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ItemHo
         holder.rv.addItemDecoration(new ItemSpace(16));
         HomeCategoryAdapter homeCategoryAdapter = new HomeCategoryAdapter(list.get(i).getGoodsList());
         holder.rv.setAdapter(homeCategoryAdapter);
-       /* homeCategoryAdapter.setClickListener(HomeCategoryAdapter.ItemClickListener() {
+        homeCategoryAdapter.setClickListener(new HomeCategoryAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, CategoryListBean.GoodsListBean data) {
                 Intent intent = new Intent(holder.itemView.getContext(), ShoppingActivity.class);
                 intent.putExtra("goodId",data.getId()+"");
                 holder.itemView.getContext().startActivity(intent);
             }
-        });*/
+        });
+
     }
 
     @Override

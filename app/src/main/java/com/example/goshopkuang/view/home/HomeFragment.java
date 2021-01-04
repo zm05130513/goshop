@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.SearchView;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -207,9 +208,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
         homeNewAdapter.setClickListener(new HomeNewAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, NewGoodsListBean data) {
-                 Intent intent = new Intent(getActivity(), ShoppingActivity.class);
+                Intent intent = new Intent(getActivity(), ShoppingActivity.class);
                 intent.putExtra("goodId", data.getId() + "");
-                 getActivity().startActivity(intent);
+                getActivity().startActivity(intent);
             }
         });
     }
@@ -222,9 +223,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
         homeHotAdapter.setClickListener(new HomeHotAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, HotGoodsListBean data) {
-                 Intent intent = new Intent(getActivity(), ShoppingActivity.class);
-                 intent.putExtra("goodId", data.getId() + "");
-                  getActivity().startActivity(intent);
+                Intent intent = new Intent(getActivity(), ShoppingActivity.class);
+                intent.putExtra("goodId", data.getId() + "");
+                getActivity().startActivity(intent);
             }
         });
     }
@@ -283,7 +284,16 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, Vie
                 Intent brand = new Intent(getActivity(), BrandListActivity.class);
                 getActivity().startActivity(brand);
                 break;
-
+            case R.id.tv_new:
+                Intent newList = new Intent(getActivity(), HotShowActivity.class);
+                getActivity().startActivity(newList);
+                break;
+            case R.id.tv_topic:
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                activity=(MainActivity)getActivity();
+                transaction.replace(R.id.fl_main,activity.getTopicFragment()).commit();
+                activity.getNavigation().setSelectedItemId(R.id.navigation_topic);
+                break;
             default:
                 break;
         }

@@ -1,7 +1,6 @@
 package com.example.goshopkuang.adapter.category;
 
 
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;

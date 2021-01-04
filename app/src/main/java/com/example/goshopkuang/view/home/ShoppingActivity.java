@@ -135,6 +135,7 @@ public class ShoppingActivity extends BaseActivity implements HomeContract.Goods
     }
 
     private void getPopupWindow() {
+      //  View view = LayoutInflater.from(this).inflate(R.layout.layout_shop_choice_popup, null);
         View view = LayoutInflater.from(this).inflate(R.layout.layout_shop_choice_popup, null);
         ivChoice = view.findViewById(R.id.iv_choice);
         ivCancel = view.findViewById(R.id.iv_cancel);

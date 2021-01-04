@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/navigation_main"
-        android:name="com.example.goshopkuang.view.main.MainFragment"
+        android:name="com.example.goshopkuang.view.main.mine.MineFragment"
         android:label="@string/title_main"
         tools:layout="@layout/fragment_main" />
 

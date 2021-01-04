@@ -1,5 +1,6 @@
 package com.example.goshopkuang.adapter.category;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.goshopkuang.R;
 import com.example.goshopkuang.model.bean.category.SortBean;
+import com.example.goshopkuang.view.home.ChannelDataActivity;
 
 import java.util.List;
 
@@ -48,6 +50,9 @@ public class SortAdapter extends RecyclerView.Adapter<SortAdapter.ItemHolder> {
             public void onClick(View v) {
                 int id = list.get(position).getId();
                 Log.i(TAG, "onClick: 跳转页面====mid=="+id);
+                Intent intent = new Intent(holder.iv.getContext(), ChannelDataActivity.class);
+                intent.putExtra("id",id);
+                holder.iv.getContext().startActivity(intent);
             }
         });
     }

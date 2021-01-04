@@ -14,7 +14,6 @@ import com.example.goshopkuang.view.category.CategoryFragment;
 //import com.example.goshopkuang.view.home.HomeFragment;
 import com.example.goshopkuang.view.home.HomeFragment;
 import com.example.goshopkuang.view.main.mine.MineFragment;
-import com.example.goshopkuang.view.main.MainFragment;
 import com.example.goshopkuang.view.shop.ShoppingFragment;
 import com.example.goshopkuang.view.topic.TopicFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -64,7 +63,6 @@ public class MainActivity extends BaseActivity {
     private TopicFragment topicFragment;
     private CategoryFragment categoryFragment;
     private ShoppingFragment shoppingFragment;
-    private MainFragment mainFragment;
     private BottomNavigationView navigation;
     private MineFragment mineFragment;
     private FragmentManager manager;
@@ -102,7 +100,6 @@ public class MainActivity extends BaseActivity {
         categoryFragment = new CategoryFragment();
         shoppingFragment = new ShoppingFragment();
         mineFragment = new MineFragment();
-        mainFragment = new MainFragment();
 
         manager = getSupportFragmentManager();
         //初始化显示主页，是一个事物
